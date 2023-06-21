@@ -10,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchTodos();
-  }, []);
+  }, [fetchTodos]);
 
   return (
     <div className="container mx-auto max-w-md p-4">
