@@ -1,4 +1,5 @@
-import  useStore  from "../store";
+'use client';
+import useStore from "../store";
 import { useState } from "react";
 
 const TodoItem = ({ todo }) => {
@@ -20,10 +21,10 @@ const TodoItem = ({ todo }) => {
   };
 
   return (
-    <div className="flex items-center space-x-2 mb-2">
+    <div className="flex items-center space-x-2 mb-2 bg-gray-100 rounded-lg p-4">
       <span
-        className={`text-gray-700 flex-1 ${
-          todo.completed ? "line-through" : ""
+        className={`text-gray-700 flex-1 text-lg font-medium ${
+          todo.completed ? "line-through text-red-500" : ""
         }`}
         onClick={handleToggleComplete}
       >

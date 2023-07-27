@@ -22,21 +22,22 @@ export default function TodoForm() {
   };
 
   return (
-    <div className="flex items-center space-x-2 mb-4">
+    <div className="flex flex-col items-center space-y-4 mb-8">
       <input
         type="text"
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
-        className="border rounded px-2 py-1 flex-1"
+        className="border rounded px-4 py-2 w-96"
+        placeholder="Enter a new todo item"
       />
       <button
         disabled={loading}
-        className={`px-2 py-1 text-white rounded ${
+        className={`px-4 py-2 text-white rounded ${
           loading ? "bg-gray-400" : "bg-green-500"
         }`}
         onClick={handleCreateTodo}
       >
-        Add
+        {loading ? "Adding..." : "Add"}
       </button>
     </div>
   );

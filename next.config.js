@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    experimental: {
+        serverActions: true,
+    },
     rewrites: async () => {
         return [
         {
@@ -7,7 +10,7 @@ const nextConfig = {
             destination:
             process.env.NODE_ENV === 'development'
                 ? 'http://127.0.0.1:5000/api/:path*'
-                : '/api/',
+                : '/api/:path*',
         },
         ]
   },

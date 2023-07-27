@@ -10,13 +10,14 @@ from dotenv import load_dotenv
 from flask_cors import CORS
 
 
+
 load_dotenv('.env')
 
 app = Flask(__name__)
-app.secret_key = environ.get('SECRET_KEY')
+#Session(app)
+app.secret_key = os.environ.get("SECRET_KEY")
 
-
-DATABASE = os.environ.get("DB_URI", f"sqlite:///{os.path.join(os.path.abspath(os.path.dirname(__file__)), 'instance/app.db')}")
+DATABASE = 'sqlite:///app.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
@@ -38,6 +39,8 @@ bcrypt = Bcrypt(app)
 api = Api(app)
 app.json.compact = False
 CORS(app)
+
+
 
 
 
